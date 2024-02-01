@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="../img/favicon.ico" />
+    <link rel="stylesheet" href="../static/animation.css">
+    <link rel="stylesheet" href="../static/global.css">
+    <link rel="stylesheet" href="../static/login.css">
+</head>
+<body class="login body">
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    <div class="login hud">
+        <div class="login box">
+            <h1>Login</h1>
+            <form action="/loginuser" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <div style="color: red;">{{.Message}}</div>
+                <input type="submit" value="Se connecter">
+                <p>Don't have an account? <a href="/register">Register here.</a>.</p>
+            </form>
+        </div>
+        <div class="logo logo">
+            <img src="img/duckgames.png" alt="duck games">
+        </div>
+    </div>
+</body>
+</html>

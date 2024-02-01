@@ -1,0 +1,144 @@
+/* ----------*/
+/* Main Menu */
+/* ----------*/
+
+/* Index */
+
+.index.body {
+    background: linear-gradient(to bottom, #bce4ff, #d9fffc);
+}
+
+.index.hud {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: -100px;
+}
+
+.index.information {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.index.information p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.index.logout {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.index.logout a button {
+    width: 100px;
+    padding: 5px;
+    border: 0px solid #000;
+    border-radius: 5px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.index.logout a button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background: white;
+    color: rgb(0, 0, 0);
+}
+
+.index.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.index.main a {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.index.main img {
+    width: 500%;
+    max-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.index.buttons h1 {
+    font-size: 50px;
+    margin: 15px 0;
+}
+
+.index.buttons button {
+    width: 200px;
+    padding: 15px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #000;
+    background: white;
+    transition: 0.1s ease, color 0.1s ease;
+    cursor: pointer;
+}
+
+.index.buttons button:hover {
+    background: #ee4a4a;
+    color: white;
+    transform: scale(1.1);
+}
+
+.index.buttons button:active {
+    background: #d9d9d9;
+    color: #000;
+}
+
+.index.main:hover img {
+    transform: scale(1.2);
+}
+
+.index.radio input {
+    width: 20px;
+    height: 20px;
+    border-radius: 0px;
+}
+
+.index.radio input[name="difficulty"][value="1"] {
+    accent-color: green;
+}
+
+
+.index.radio input[name="difficulty"][value="2"] {
+    accent-color: rgb(187, 106, 0);
+}
+
+.index.radio input[name="difficulty"][value="3" ] {
+    accent-color: red;
+}
+
+.index.radio input[name="difficulty"][value="4"] {
+    accent-color: black;
+}
+
+.index.radio label {
+    font-size: 20px;
+    margin: 5px;
+}
+
+.index.buttons.other {
+    margin-top: 50px;
+}

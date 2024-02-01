@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main menu</title>
+    <link rel="icon" type="image/png" href="../img/favicon.ico" />
+    <link rel="stylesheet" href="../static/global.css">
+    <link rel="stylesheet" href="../static/animation.css">
+    <link rel="stylesheet" href="../static/main.css">
+</head>
+<body class="index body">
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="logout">
+        <div class="index information">
+            <p>Username: {{.Username}}</p>
+            <p>ID: {{.ID}}</p>
+        </div>
+
+        <div class="index logout">
+            <a href="/login"><button id="logoutButton">LOGOUT</button></a>
+        </div>
+    </div>
+
+    <div class="index hud">
+        <div class="index main">
+            <a href="https://youtu.be/17vFHKwq8B8?t=8" target="_blank">
+                <img src="../img/duck.png" alt="duck">
+            </a>
+        </div>
+        
+        <div class="index buttons">
+            <h1>Ducky Hangman</h1>
+            <div class="index difficulty">
+                <form action="/hangman" method="get">
+                    <input type="hidden" name="id" value="{{.ID}}">
+                    <button type="submit" id="hangmanButton">START</button>
+                
+                    <div class="index radio difficulty">
+                        <label>Select Difficulty:</label>
+
+                        <input type="radio" id="easy" name="difficulty" value="1" checked>
+                        <label for="easy">Easy</label>
+
+                        <input type="radio" id="normal" name="difficulty" value="2">
+                        <label for="normal">Normal</label>
+
+                        <input type="radio" id="hard" name="difficulty" value="3">
+                        <label for="hard">Hard</label>
+
+                        <input type="radio" id="extreme" name="difficulty" value="4">
+                        <label for="extreme">Extreme</label>
+                    </div>
+                
+                    <div class="index radio theme">
+                        <label>Select Theme:</label>
+                            <input type="radio" id="theme1" name="theme" value="1" checked>
+                            <label for="theme1">Hangman</label>
+
+                            <input type="radio" id="theme2" name="theme" value="2">
+                            <label for="theme2">Ducky</label>
+
+                            <input type="radio" id="theme3" name="theme" value="3">
+                            <label for="theme3">Halloween</label>
+
+                            <input type="radio" id="theme4" name="theme" value="4">
+                            <label for="theme4">Noel</label>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+            <div class="index buttons other">
+                <a href="/leaderboard"><button id="leaderboardButton">LEADERBOARD</button></a>
+                
+                <a href="/credits"><button id="creditsButton">CREDITS</button></a>
+            </div>       
+        </div>
+
+        <div class="logo logo">
+            <img src="img/duckgames.png" alt="duck games">
+        </div>
+    </div>
+</body>
+</html>

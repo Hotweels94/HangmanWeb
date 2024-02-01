@@ -1,0 +1,58 @@
+/* Global */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ------------*/
+/* Other stuff */
+/* ------------*/
+
+/* Back Button */
+
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.back-button button {
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #000;
+    background: white;
+    transition: 0.1s ease, color 0.1s ease;
+    cursor: pointer;
+}
+
+.back-button button:hover {
+    background: #ee4a4a;
+    color: white;
+    transform: scale(1.1);
+}
+
+.back-button button:active {
+    background: #d9d9d9;
+    color: #000;
+}
+
+/* Logo */
+
+.logo.logo {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.logo.logo img {
+    width: 200px;
+    max-width: 100%;
+    animation: rotateLeftToRight 10s linear infinite;
+}

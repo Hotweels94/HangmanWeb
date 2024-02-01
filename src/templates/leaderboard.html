@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="icon" type="image/png" href="../img/favicon.ico" />
+    <link rel="stylesheet" href="../static/leaderboard.css">
+    <link rel="stylesheet" href="../static/global.css">
+    <link rel="stylesheet" href="../static/animation.css">
+</head>
+<body class="leaderboard body">
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="leaderboard hud">
+        <div class="leaderboard top-tree">
+            <h1>Best Global Score</h1>
+            <div class="podium">
+                {{ range $index, $entry := . }}
+                    {{ if le $index 2 }}
+                        <div class="podium-item">
+                            <div class="player-info">
+                                {{ if eq $index 0 }}
+                                    <!-- Gold Trophy for 1st place -->
+                                    <img class="trophy-gold" src="/img/gold.png" alt="Gold Trophy">
+                                {{ else if eq $index 1 }}
+                                    <!-- Silver Trophy for 2nd place -->
+                                    <img class="trophy-silver" src="/img/argent.png" alt="Silver Trophy">
+                                {{ else if eq $index 2 }}
+                                    <!-- Bronze Trophy for 3rd place -->
+                                    <img class="trophy-bronze" src="/img/bronze.png" alt="Bronze Trophy">
+                                {{ end }}
+                                <p class="player-name">{{ $entry.Player }}</p>
+                                <p class="player-points">{{ $entry.Points }} Points</p>
+                                <p class="player-datetime">{{ $entry.DateTime }}</p>
+                            </div>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+
+            <!-- Other players (4th to 10th) above the podium -->
+            <div class="podium">
+                {{ range $index, $entry := . }}
+                    {{ if and (gt $index 2) (le $index 9) }}
+                        <div class="podium-item">
+                            <div class="player-info">
+                                <p class="player-name">{{ $entry.Player }}</p>
+                                <p class="player-points">{{ $entry.Points }} Points</p>
+                                <p class="player-datetime">{{ $entry.DateTime }}</p>
+                            </div>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    <div class="logo logo">
+        <img src="img/duckgames.png" alt="duck games">
+    </div>
+</body>
+</html>

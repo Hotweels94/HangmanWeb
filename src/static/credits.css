@@ -1,0 +1,42 @@
+
+/* --------*/
+/* Credits */
+/* --------*/
+
+.credits.body {
+    background: linear-gradient(to bottom, #baedff, #fff6cf);
+}
+
+.credits.hud {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: -100px;
+}
+
+.credits.developer h1 {
+    font-size: 50px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.credits.developer p {
+    font-size: 20px;
+    margin: 15px;
+    text-align: center;
+
+}
+
+.credits.producer h1 {
+    font-size: 50px;
+    margin: 15px;
+    text-align: center;
+}
+
+.credits.producer p {
+    font-size: 20px;
+    margin: 15px 0;
+    text-align: center;
+}

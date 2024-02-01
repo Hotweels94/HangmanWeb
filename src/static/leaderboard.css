@@ -1,0 +1,70 @@
+/* Add these styles to your existing leaderboard.css */
+
+.leaderboard.body {
+    background: linear-gradient(to bottom, #3498db, #eff9ff);
+    color: white;
+}
+
+.leaderboard.hud {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -100px;
+    z-index: 2;
+}
+
+.leaderboard.top-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.podium {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.podium-item {
+    text-align: center;
+    margin: 10px;
+}
+
+.trophy-bronze,
+.trophy-gold,
+.trophy-silver {
+    vertical-align: middle;
+}
+
+.trophy-bronze {
+    width: 60px;
+    margin-bottom: 10px;
+}
+.trophy-gold {
+    width: 100px;
+    margin-bottom: 10px;
+}
+.trophy-silver {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.player-info {
+    background-color: rgba(90, 101, 255, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.player-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.player-name,
+.player-points,
+.player-datetime {
+    margin: 0;
+}
+

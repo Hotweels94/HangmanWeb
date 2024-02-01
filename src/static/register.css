@@ -1,0 +1,64 @@
+.register.body {
+    background: linear-gradient(to bottom, #ffffff, #d9fffc);
+}
+
+.register.hud {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: -100px;
+}
+
+.register.container {
+    display: flex;
+    flex-direction: row; /* Arrange the items in a row */
+}
+
+.register.box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);
+    padding: 30px; /* Increase the padding for a larger appearance */
+    width: 350px; /* Adjust the width as needed */
+    text-align: center;
+}
+
+.register.box h1 {
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+.register.box label {
+    display: block;
+    margin: 10px 0;
+}
+
+.register.box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.register.box input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #000;
+    background: white;
+    transition: 0.1s ease, color 0.1s ease;
+    cursor: pointer;
+}
+
+.register.box input[type="submit"]:hover {
+    background: #ee4a4a;
+    color: white;
+    transform: scale(1.1);
+}

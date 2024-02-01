@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="icon" type="image/png" href="../img/favicon.ico" />
+    <link rel="stylesheet" href="../static/hangman.css">
+    <link rel="stylesheet" href="../static/global.css">
+    <link rel="stylesheet" href="../static/animation.css">
+    <link rel="stylesheet" href="../static/stickman.css">
+</head>
+
+<!-- We show the ocean animation -->
+<body class="hangman body">
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="hangman island">
+        <img src="../img/island.png" alt="island">
+    </div>
+
+    <!-- If the player choose the Hangman theme, We show the character depending of health points-->
+    <div class="hangman img">
+        {{if eq .Theme 1}}
+            {{if eq .Health 10}}
+            <div class="stickman">
+                <div class="base"></div>
+            </div>
+            {{else if eq .Health 9}}
+            <div class="stickman">
+                <div class="base"></div>
+                <div class="base two"></div>
+            </div>
+            {{else if eq .Health 8}}
+            <div class="stickman">
+                <div class="base"></div>
+                <div class="base two"></div>
+                <div class="base three"></div>
+            </div>
+            {{else if eq .Health 7}}
+            <div class="stickman">
+                <div class="base"></div>
+                <div class="base two"></div>
+                <div class="base three"></div>
+                <div class="base four"></div>
+            </div>
+            {{else if eq .Health 6}}
+            <div class="stickman">
+                <div class="base"></div>
+                <div class="base two"></div>
+                <div class="base three"></div>
+                <div class="base four"></div>
+                <div class="rope"></div>
+            </div>
+            {{else if eq .Health 5}}
+            <div class="stickman">
+                <div class="head"></div>
+                <div class="base"></div>
+                <div class="base two"></div>
+                <div class="base three"></div>
+                <div class="base four"></div>
+                <div class="rope"></div>
+            </div>
+            {{else if eq .Health 4}}
+            <div class="stickman">
+                <div class="head"></div>
+                <div class="bust"></div>
+                <div class="base"></div>
+                <div class="base two"></div>
+                <div class="base three"></div>
+                <div class="base four"></div>
+                <div class="rope"></div>
+            </div>
+            {{else if eq .Health 3}}
+            <div class="stickman">
+                <div class="head"></div>
+                <div class="bust"></div>
+                <div class="arm one"></div>
+                <div class="base"></div>
+                <div class="base two"></div>
+                <div class="base three"></div>
+                <div class="base four"></div>
+                <div class="rope"></div>
+            </div>
+            {{else if eq .Health 2}}
+            <div class="stickman">
+                <div class="head"></div>
+                <div class="bust"></div>
+                <div class="arm one"></div>
+                <div class="arm two"></div>
+                <div class="base"></div>
+                <div class="base two"></div>
+                <div class="base three"></div>
+                <div class="base four"></div>
+                <div class="rope"></div>
+            </div>
+            {{else if eq .Health 1}}
+            <div class="stickman">
+                <div class="head"></div>
+                <div class="bust"></div>
+                <div class="arm one"></div>
+                <div class="arm two"></div>
+                <div class="leg one"></div>
+                <div class="base"></div>
+                <div class="base two"></div>
+                <div class="base three"></div>
+                <div class="base four"></div>
+                <div class="rope"></div>
+            </div>
+            {{else if eq .Health 0}}
+            <div class="stickman">
+                <div class="head"></div>
+                <div class="bust"></div>
+                <div class="arm one"></div>
+                <div class="arm two"></div>
+                <div class="leg one"></div>
+                <div class="leg two"></div>
+                <div class="base"></div>
+                <div class="base two"></div>
+                <div class="base three"></div>
+                <div class="base four"></div>
+                <div class="rope"></div>
+            </div>
+            {{end}}
+           
+        <!-- Ducky theme load -->    
+        {{else if eq .Theme 2}}
+        <img src="{{.ImagePath}}" alt="Health Image">
+
+        <!-- Halloween theme load -->    
+        {{else if eq .Theme 3}}
+        <img src="{{.ImagePath}}" alt="Health Image">
+
+        <!-- Christmas theme load -->    
+        {{else if eq .Theme 4}}
+        <img src="{{.ImagePath}}" alt="Health Image">
+        {{end}}
+        <div class="hangman hidden">
+
+        <!-- If the player win we show the secret word -->    
+        {{ if .Victory}}
+            <h1>{{.Secretword}}</h1>
+        
+        <!-- If the player loose we show the secret word -->   
+        {{ else if .GameOver }}
+            <h1>{{.Secretword}}</h1>
+
+        <!-- And if the is in game we show the incomplete word and incorrects letters -->   
+        {{ else }}    
+            <h1>{{.Hideword}}</h1>
+            <h3>Incorrect:</h3>
+            <h4>{{.Incorrectes}}</h4>
+        {{end}}
+        </div>
+    </div>
+
+    <!-- In the cloud -->   
+    <div class="hangman game">
+        <div class="hangman cloud">
+            <img src="../img/cloud.png" alt="Hangman">
+            <div class="text-container">
+
+                <!-- Win message and load the score for the leaderboard -->   
+                {{if .Victory}}
+                <div class="hangman victory">
+                    <h1>You Win!</h1>
+                    <br>
+                    <div><a href="/addscore?id={{ .ID }}">Quit</a></div>
+                    <p>Your score will be updated</p>
+                </div>
+
+                <!-- Loose message -->   
+                {{else if .GameOver}}
+                <div class="hangman gameover">
+                    <h1>Game Over!</h1>
+                    <br>
+                    <div><a href="/mainmenu?id={{ .ID }}">Quit</a></div>
+                    <p>The word was {{.Secretword}}</p>
+                </div>
+
+                <!-- If the player is in game we let him a search bar to play -->   
+                {{else}}
+                <div class="hangman game">
+                    <h2>Health: {{.Health}}</h2>
+                    <p>Letters: -1 / Word: -2</p>
+                    <form method="post" action="/hangman?id={{.ID}}">
+                        <input type="text" name="userInput" id="userInput" placeholder="Enter letter or word" pattern="[a-zA-Z]+" title="Enter only letters"/>
+                        <input type="submit" value="Guess" />
+                    </form>
+                </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
